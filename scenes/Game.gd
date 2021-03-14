@@ -23,7 +23,6 @@ func _on_SpritzenSpawnTimer_timeout():
 	spritze.rotation = direction
 	spritze.linear_velocity = Vector2(rand_range(400, 600), 0)
 	spritze.linear_velocity = spritze.linear_velocity.rotated(direction)
-	$SpritzenSpawnTimer.wait_time = rand_range(0.5, 1)
 
 func _on_Player_dead(enemy):
 	$SpritzenSpawnTimer.stop()
