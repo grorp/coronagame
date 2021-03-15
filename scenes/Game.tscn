@@ -9,7 +9,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1920, 0, 0, 0, 0, 0, 1920, 1080, 0, 0, 0, 0, 0, 1080, 0, 0, 0, 0, 0, 0 )
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 85.0986, 3.228, 0, 0, 0, 0, 1920, 0, 0, 0, 0, 0, 1920, 1080, 0, 0, 0, 0, 0, 1080, 0, 0, 0, 0, 0, 0 )
 }
 
 [sub_resource type="DynamicFont" id=2]
@@ -31,6 +31,7 @@ autostart = true
 curve = SubResource( 1 )
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawnPath"]
+rotation = 0.0379143
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = -1
@@ -72,5 +73,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
+[connection signal="human_infected" from="Player" to="." method="_on_Player_human_infected"]
 [connection signal="timeout" from="SpritzenSpawnTimer" to="." method="_on_SpritzenSpawnTimer_timeout"]
 [connection signal="timeout" from="AfterGameOverTimer" to="." method="_on_AfterGameOverTimer_timeout"]

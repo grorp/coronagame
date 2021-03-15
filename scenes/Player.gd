@@ -5,6 +5,8 @@ const speed = 300
 signal dead
 var dead = false
 
+signal human_infected
+
 func _physics_process(delta):
 	if dead:
 		return
@@ -28,3 +30,5 @@ func _on_body_entered(body):
 	if body.is_in_group("enemy") and !dead:
 		dead = true
 		emit_signal("dead", body)
+	elif body.is_in_group("victim"):
+		emit_signal("human_infected", body)

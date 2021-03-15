@@ -32,3 +32,7 @@ func _on_Player_dead(enemy):
 
 func _on_AfterGameOverTimer_timeout():
 	get_tree().change_scene("res://scenes/MainMenu.tscn")
+
+func _on_Player_human_infected(body):
+	if !body.infected:
+		body.infect()
