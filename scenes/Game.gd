@@ -1,6 +1,6 @@
 extends Node
 
-export (PackedScene) var Spritze
+export (PackedScene) var Syringe
 
 func _ready():
 	randomize()
@@ -11,18 +11,18 @@ func _input(event):
 
 func _on_SpritzenSpawnTimer_timeout():
 	$MobPath/MobSpawnLocation.offset = randi()
-	var spritze = Spritze.instance()
-	add_child(spritze)
-	spritze.position = $MobPath/MobSpawnLocation.position
+	var syringe = Syringe.instance()
+	add_child(syringe)
+	syringe.position = $MobPath/MobSpawnLocation.position
 	var offset =  $Player/Camera2D.get_camera_screen_center()
 	offset.x -= get_viewport().size.x / 2
 	offset.y -= get_viewport().size.y / 2
-	spritze.position = offset + spritze.position
+	syringe.position += offset
 	var direction = $MobPath/MobSpawnLocation.rotation + PI / 2
 	direction += rand_range(-PI / 4, PI / 4)
-	spritze.rotation = direction
-	spritze.linear_velocity = Vector2(rand_range(400, 600), 0)
-	spritze.linear_velocity = spritze.linear_velocity.rotated(direction)
+	syringe.rotation = direction
+	syringe.linear_velocity = Vector2(rand_range(400, 600), 0)
+	syringe.linear_velocity = syringe.linear_velocity.rotated(direction)
 
 func _on_Player_dead(enemy):
 	$SpritzenSpawnTimer.stop()

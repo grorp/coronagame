@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spritze.png-3d78373fc7faa34cdcb2caeeda30d633.stex"
+path="res://.import/syringe.png-13dfcb5cf547daf1d5293f3eb93942b3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/spritze.png"
-dest_files=[ "res://.import/spritze.png-3d78373fc7faa34cdcb2caeeda30d633.stex" ]
+source_file="res://assets/textures/syringe.png"
+dest_files=[ "res://.import/syringe.png-13dfcb5cf547daf1d5293f3eb93942b3.stex" ]
 
 [params]
 
