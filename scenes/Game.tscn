@@ -27,10 +27,10 @@ Syringe = ExtResource( 3 )
 wait_time = 0.5
 autostart = true
 
-[node name="MobPath" type="Path2D" parent="."]
+[node name="MobSpawnPath" type="Path2D" parent="."]
 curve = SubResource( 1 )
 
-[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawnPath"]
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = -1
