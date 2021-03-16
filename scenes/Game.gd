@@ -27,7 +27,7 @@ func _on_SyringeSpawnTimer_timeout():
 	syringe.linear_velocity = syringe.linear_velocity.rotated(direction)
 
 func _on_Player_dead(enemy):
-	$SpritzenSpawnTimer.stop()
+	$SyringeSpawnTimer.stop()
 	enemy.linear_velocity = Vector2(0, 0)
 	$HUD/GameOverTxt.show()
 	$AfterGameOverTimer.start()
