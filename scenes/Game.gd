@@ -2,6 +2,8 @@ extends Node
 
 export (PackedScene) var Syringe
 
+var active_syringes = 0
+
 func _ready():
 	randomize()
 
@@ -25,16 +27,26 @@ func _on_SyringeSpawnTimer_timeout():
 	syringe.rotation = direction
 	syringe.linear_velocity = Vector2(rand_range(400, 600), 0)
 	syringe.linear_velocity = syringe.linear_velocity.rotated(direction)
+	
+	active_syringes += 1
+	syringe.connect("tree_exited", self, "_on_Syringe_deleted")
 
-func _on_Player_dead(enemy):
-	$SyringeSpawnTimer.stop()
+func _on_Syringe_deleted():
+	active_syringes -= 1
+	if $Player.stopped and active_syringes == 0:
+		$AfterGameOverTimer.start()
+
+func _on_Player_hit_by_enemy(enemy):
+	if not $Player.stopped:
+		$Player.stopped = true
+		$SyringeSpawnTimer.stop()
+		$HUD/GameOverTxt.show()
 	enemy.linear_velocity = Vector2(0, 0)
-	$HUD/GameOverTxt.show()
-	$AfterGameOverTimer.start()
+	active_syringes -= 1
 
 func _on_AfterGameOverTimer_timeout():
 	get_tree().change_scene("res://scenes/MainMenu.tscn")
 
 func _on_Player_victim_infected(victim):
-	if !victim.infected:
+	if not victim.infected:
 		victim.infect()

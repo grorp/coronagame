@@ -1,14 +1,13 @@
 extends Area2D
 
 const speed = 300
+var stopped = false
 
-signal dead
-var dead = false
-
+signal hit_by_enemy
 signal victim_infected
 
 func _physics_process(delta):
-	if dead:
+	if stopped:
 		return
 	
 	var velocity = Vector2()
@@ -27,8 +26,7 @@ func _physics_process(delta):
 		position += velocity * delta
 
 func _on_body_entered(body):
-	if body.is_in_group("enemy") and !dead:
-		dead = true
-		emit_signal("dead", body)
+	if body.is_in_group("enemy"):
+		emit_signal("hit_by_enemy", body)
 	elif body.is_in_group("victim"):
 		emit_signal("victim_infected", body)
