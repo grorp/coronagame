@@ -22,11 +22,9 @@ func _on_SyringeSpawnTimer_timeout():
 	offset.y -= get_viewport().size.y / 2
 	syringe.position += offset
 	
-	var direction = $MobSpawnPath/MobSpawnLocation.rotation + PI / 2
-	direction += rand_range(-PI / 4, PI / 4)
-	syringe.rotation = direction
+	syringe.look_at($Player.position)
 	syringe.linear_velocity = Vector2(rand_range(400, 600), 0)
-	syringe.linear_velocity = syringe.linear_velocity.rotated(direction)
+	syringe.linear_velocity = syringe.linear_velocity.rotated(syringe.rotation)
 	
 	active_syringes += 1
 	syringe.connect("tree_exited", self, "_on_Syringe_deleted")
