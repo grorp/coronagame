@@ -4,8 +4,8 @@
 [ext_resource path="res://scenes/Human.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
-resource_name = "disappear"
-length = 0.2
+resource_name = "infect"
+step = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:modulate")
 tracks/0/interp = 1
@@ -13,10 +13,22 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.494118, 1, 0.635294, 1 ), Color( 0.494118, 1, 0.635294, 0.784314 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 3.2, 1 ),
+"update": 0,
+"values": [ 0.0, 90.0 ]
 }
 
 [node name="Human" type="StaticBody2D" groups=[
@@ -37,5 +49,4 @@ texture = ExtResource( 1 )
 polygon = PoolVector2Array( -44.9807, -74.9707, -37.4606, -74.9707, -37.4606, -82.5106, -29.9404, -82.4712, -29.9601, -90.0111, -22.499, -90.0308, -22.4399, -97.4918, 22.5105, -97.4883, 22.4919, -89.9814, 29.9988, -90.0372, 30.036, -82.4931, 37.5243, -82.4746, 37.5057, -75.0049, 45.0311, -74.9863, 44.994, -67.498, 52.538, -67.498, 52.538, -44.9774, 45.0038, -44.9406, 45.0564, -37.4867, 37.5149, -37.4692, 37.5324, -29.9803, 30.026, -29.9627, 30.0084, -22.4913, 37.55, -22.5264, 37.5324, -15.0024, 44.9863, -15.0024, 45.0214, 7.517, 52.5629, 7.53453, 52.5103, 22.5124, 60.0518, 22.5299, 60.0518, 37.5253, 52.4927, 37.5253, 52.5278, 44.9967, 37.4973, 45.0493, 37.5499, 52.5733, 45.0213, 52.5207, 45.0389, 67.4986, 37.4798, 67.4635, 37.5149, 90.0004, 29.9909, 89.9829, 30.0084, 97.5245, 7.52408, 97.5069, 7.57268, 82.3587, -7.5293, 82.4177, -7.41132, 97.5197, -30.1233, 97.5787, -29.9463, 90.0277, -37.4973, 90.0277, -37.3793, 67.4928, -44.9893, 67.6107, -44.9893, 52.3318, -37.4383, 52.4498, -37.4973, 45.0167, -52.4223, 45.0757, -52.4813, 37.4658, -59.9733, 37.6427, -60.0323, 22.4817, -52.4813, 22.4228, -52.4813, 7.43876, -44.8713, 7.43876, -44.9893, -15.0962, -37.3794, -14.9783, -37.4384, -22.5882, -30.0053, -22.5882, -29.9463, -29.9622, -37.5251, -29.8832, -37.5009, -37.5199, -45.0076, -37.6305, -44.9414, -45.0468, -52.5562, -44.9805, -52.4238, -67.5603, -44.9414, -67.5603 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/disappear = SubResource( 1 )
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+anims/infect = SubResource( 1 )
