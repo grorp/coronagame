@@ -5,7 +5,6 @@ export (PackedScene) var Syringe
 var active_syringes = 0
 
 func _ready():
-	randomize()
 	if Global.difficulty == Global.Difficulty.HARD:
 		$SyringeSpawnTimer.wait_time = 0.25
 
