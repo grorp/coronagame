@@ -23,8 +23,8 @@ Syringe = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
-[node name="SpritzenSpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
+[node name="SyringeSpawnTimer" type="Timer" parent="."]
 autostart = true
 
 [node name="MobSpawnPath" type="Path2D" parent="."]
@@ -74,5 +74,5 @@ __meta__ = {
 }
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
 [connection signal="victim_infected" from="Player" to="." method="_on_Player_victim_infected"]
-[connection signal="timeout" from="SpritzenSpawnTimer" to="." method="_on_SpritzenSpawnTimer_timeout"]
+[connection signal="timeout" from="SyringeSpawnTimer" to="." method="_on_SyringeSpawnTimer_timeout"]
 [connection signal="timeout" from="AfterGameOverTimer" to="." method="_on_AfterGameOverTimer_timeout"]
