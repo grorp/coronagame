@@ -31,10 +31,6 @@ __meta__ = {
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -4.24268
-margin_top = 8.48529
-margin_right = -4.24268
-margin_bottom = 8.48535
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -63,7 +59,6 @@ custom_constants/separation = 16
 alignment = 1
 
 [node name="PlayButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-modulate = Color( 0.607843, 0.607843, 0.607843, 1 )
 margin_top = 54.0
 margin_right = 200.0
 margin_bottom = 98.0
@@ -73,7 +68,6 @@ shortcut = SubResource( 2 )
 text = "Play"
 
 [node name="DifficultyButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-modulate = Color( 0.607843, 0.607843, 0.607843, 1 )
 margin_top = 114.0
 margin_right = 200.0
 margin_bottom = 158.0
@@ -107,7 +101,6 @@ shortcut = SubResource( 2 )
 text = "Hard"
 
 [node name="AboutButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-modulate = Color( 0.607843, 0.607843, 0.607843, 1 )
 margin_top = 354.0
 margin_right = 200.0
 margin_bottom = 398.0
@@ -115,7 +108,6 @@ disabled = true
 text = "About"
 
 [node name="ExitButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-modulate = Color( 0.607843, 0.607843, 0.607843, 1 )
 margin_top = 414.0
 margin_right = 200.0
 margin_bottom = 458.0
