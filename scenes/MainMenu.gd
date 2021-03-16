@@ -12,3 +12,6 @@ func _on_AboutButton_pressed():
 
 func _on_PlayButton_pressed():
 	get_tree().change_scene("res://scenes/Game.tscn")
+
+func _on_DifficultyButton_pressed():
+	get_tree().change_scene("res://scenes/DifficultyMenu.tscn")
