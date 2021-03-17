@@ -2,6 +2,8 @@ extends Node
 
 export (PackedScene) var Syringe
 
+var infected_people = 0
+var start_time = null
 var active_syringes = 0
 
 func _ready():
@@ -11,6 +13,7 @@ func _ready():
 		$SyringeSpawnTimer.wait_time = 0.25
 	elif Global.difficulty == Global.Difficulty.INSTANT_DEATH:
 		$SyringeSpawnTimer.wait_time = 0.001
+	start_time = OS.get_unix_time()
 
 func _MobSpawnPath_set_points():
 	$MobSpawnPath.curve = Curve2D.new()
@@ -23,6 +26,12 @@ func _MobSpawnPath_set_points():
 func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().change_scene("res://scenes/MainMenu.tscn")
+
+func _on_Timer_timeout():
+	var seconds = OS.get_unix_time() - start_time
+	var minutes = seconds / 60
+	seconds -= minutes * 60
+	$HUD/HBoxContainer/TimerLabel.text = "%02d:%02d" % [minutes, seconds]
 
 func _on_SyringeSpawnTimer_timeout():
 	$MobSpawnPath/MobSpawnLocation.offset = randi()
@@ -58,6 +67,7 @@ func _on_Syringe_deleted():
 func _on_Player_hit_by_enemy(enemy):
 	if not $Player.stopped:
 		$Player.stopped = true
+		$Timer.stop()
 		$SyringeSpawnTimer.stop()
 		$HUD/GameOverTxt.show()
 	enemy.linear_velocity = Vector2(0, 0)
@@ -69,3 +79,5 @@ func _on_AfterGameOverTimer_timeout():
 func _on_Player_victim_infected(victim):
 	if not victim.infected:
 		victim.infect()
+		infected_people += 1
+		$HUD/HBoxContainer/InfectedPeopleLabel.text = "Infected people:\n%d" % infected_people
