@@ -5,10 +5,20 @@ export (PackedScene) var Syringe
 var active_syringes = 0
 
 func _ready():
+	_MobSpawnPath_set_points()
+	get_viewport().connect("size_changed", self, "_MobSpawnPath_set_points")
 	if Global.difficulty == Global.Difficulty.HARD:
 		$SyringeSpawnTimer.wait_time = 0.25
 	elif Global.difficulty == Global.Difficulty.INSTANT_DEATH:
 		$SyringeSpawnTimer.wait_time = 0.001
+
+func _MobSpawnPath_set_points():
+	$MobSpawnPath.curve = Curve2D.new()
+	$MobSpawnPath.curve.add_point(Vector2(0, 0))
+	$MobSpawnPath.curve.add_point(Vector2(get_viewport().size.x, 0))
+	$MobSpawnPath.curve.add_point(get_viewport().size)
+	$MobSpawnPath.curve.add_point(Vector2(0, get_viewport().size.y))
+	$MobSpawnPath.curve.add_point(Vector2(0, 0))
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):

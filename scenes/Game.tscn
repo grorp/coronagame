@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Game.gd" type="Script" id=2]
@@ -7,12 +7,7 @@
 [ext_resource path="res://assets/Theme.tres" type="Theme" id=5]
 [ext_resource path="res://assets/font/PressStart2P.ttf" type="DynamicFontData" id=6]
 
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 85.0986, 3.228, 0, 0, 0, 0, 1920, 0, 0, 0, 0, 0, 1920, 1080, 0, 0, 0, 0, 0, 1080, 0, 0, 0, 0, 0, 0 )
-}
-
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 120
 extra_spacing_char = 5
 font_data = ExtResource( 6 )
@@ -28,7 +23,6 @@ wait_time = 0.5
 autostart = true
 
 [node name="MobSpawnPath" type="Path2D" parent="."]
-curve = SubResource( 1 )
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawnPath"]
 rotation = 0.0379143
@@ -42,7 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 15.0
 theme = ExtResource( 5 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.0627451, 0.858824, 0.101961, 1 )
 custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
 custom_constants/shadow_offset_x = 5
