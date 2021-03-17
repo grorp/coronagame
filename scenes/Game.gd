@@ -7,6 +7,8 @@ var active_syringes = 0
 func _ready():
 	if Global.difficulty == Global.Difficulty.HARD:
 		$SyringeSpawnTimer.wait_time = 0.25
+	elif Global.difficulty == Global.Difficulty.INSTANT_DEATH:
+		$SyringeSpawnTimer.wait_time = 0.001
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):

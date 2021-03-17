@@ -36,9 +36,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
-margin_left = 564.0
+margin_left = 544.0
 margin_top = 284.0
-margin_right = 1356.0
+margin_right = 1376.0
 margin_bottom = 796.0
 custom_constants/separation = 80
 __meta__ = {
@@ -52,16 +52,16 @@ texture = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
 margin_left = 592.0
-margin_right = 792.0
+margin_right = 832.0
 margin_bottom = 512.0
-rect_min_size = Vector2( 200, 0 )
+rect_min_size = Vector2( 240, 0 )
 custom_constants/separation = 16
 alignment = 1
 
 [node name="PlayButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 54.0
-margin_right = 200.0
-margin_bottom = 98.0
+margin_top = 24.0
+margin_right = 240.0
+margin_bottom = 68.0
 focus_mode = 0
 disabled = true
 shortcut_in_tooltip = false
@@ -69,54 +69,53 @@ shortcut = SubResource( 2 )
 text = "Play"
 
 [node name="DifficultyButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 114.0
-margin_right = 200.0
-margin_bottom = 158.0
+margin_top = 84.0
+margin_right = 240.0
+margin_bottom = 128.0
 focus_mode = 0
 disabled = true
-shortcut_in_tooltip = false
-shortcut = SubResource( 2 )
 text = "Difficulty"
 
 [node name="EasyButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 174.0
-margin_right = 200.0
-margin_bottom = 218.0
-shortcut_in_tooltip = false
-shortcut = SubResource( 2 )
+margin_top = 144.0
+margin_right = 240.0
+margin_bottom = 188.0
 text = "Easy"
 
 [node name="NormalButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 234.0
-margin_right = 200.0
-margin_bottom = 278.0
-shortcut_in_tooltip = false
-shortcut = SubResource( 2 )
+margin_top = 204.0
+margin_right = 240.0
+margin_bottom = 248.0
 text = "Normal"
 
 [node name="HardButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 294.0
-margin_right = 200.0
-margin_bottom = 338.0
-shortcut_in_tooltip = false
-shortcut = SubResource( 2 )
+margin_top = 264.0
+margin_right = 240.0
+margin_bottom = 308.0
 text = "Hard"
 
+[node name="InstantDeathButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 324.0
+margin_right = 240.0
+margin_bottom = 368.0
+text = "Instant death"
+
 [node name="AboutButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 354.0
-margin_right = 200.0
-margin_bottom = 398.0
+margin_top = 384.0
+margin_right = 240.0
+margin_bottom = 428.0
 focus_mode = 0
 disabled = true
 text = "About"
 
 [node name="ExitButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 414.0
-margin_right = 200.0
-margin_bottom = 458.0
+margin_top = 444.0
+margin_right = 240.0
+margin_bottom = 488.0
 focus_mode = 0
 disabled = true
 text = "Exit"
 [connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/EasyButton" to="." method="_on_EasyButton_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/NormalButton" to="." method="_on_NormalButton_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/HardButton" to="." method="_on_HardButton_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/InstantDeathButton" to="." method="_on_InstantDeathButton_pressed"]

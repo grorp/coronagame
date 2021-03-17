@@ -1,6 +1,6 @@
 extends Node
 
-enum Difficulty {EASY, NORMAL, HARD}
+enum Difficulty {EASY, NORMAL, HARD, INSTANT_DEATH}
 
 var difficulty = Difficulty.NORMAL
 

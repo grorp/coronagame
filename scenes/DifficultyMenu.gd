@@ -18,3 +18,8 @@ func _on_HardButton_pressed():
 	Global.difficulty = Global.Difficulty.HARD
 	Global.save_settings()
 	get_tree().change_scene("res://scenes/MainMenu.tscn")
+
+func _on_InstantDeathButton_pressed():
+	Global.difficulty = Global.Difficulty.INSTANT_DEATH
+	Global.save_settings()
+	get_tree().change_scene("res://scenes/MainMenu.tscn")
