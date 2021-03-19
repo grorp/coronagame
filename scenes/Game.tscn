@@ -70,12 +70,12 @@ text = "Infected people:
 
 [node name="Spacer" type="Control" parent="HUD/HBoxContainer"]
 margin_left = 452.0
-margin_right = 1764.0
+margin_right = 1652.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 
 [node name="TimerLabel" type="Label" parent="HUD/HBoxContainer"]
-margin_left = 1768.0
+margin_left = 1656.0
 margin_right = 1904.0
 margin_bottom = 60.0
 size_flags_vertical = 1
@@ -87,7 +87,7 @@ custom_constants/shadow_offset_x = 2
 custom_constants/line_spacing = 12
 custom_constants/shadow_offset_y = 2
 custom_constants/shadow_as_outline = 1
-text = "00:00"
+text = "00:00.000"
 
 [node name="GameOverTxt" type="Label" parent="HUD"]
 visible = false
