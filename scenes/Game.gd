@@ -13,7 +13,7 @@ func _ready():
 		$SyringeSpawnTimer.wait_time = 0.25
 	elif Global.difficulty == Global.Difficulty.INSTANT_DEATH:
 		$SyringeSpawnTimer.wait_time = 0.001
-	start_time = OS.get_unix_time()
+	start_time = OS.get_system_time_msecs()
 
 func _MobSpawnPath_set_points():
 	$MobSpawnPath.curve = Curve2D.new()
@@ -28,10 +28,12 @@ func _input(event):
 		get_tree().change_scene("res://scenes/MainMenu.tscn")
 
 func _on_Timer_timeout():
-	var seconds = OS.get_unix_time() - start_time
+	var milliseconds = OS.get_system_time_msecs() - start_time
+	var seconds = milliseconds / 1000
+	milliseconds -= seconds * 1000
 	var minutes = seconds / 60
 	seconds -= minutes * 60
-	$HUD/HBoxContainer/TimerLabel.text = "%02d:%02d" % [minutes, seconds]
+	$HUD/HBoxContainer/TimerLabel.text = "%02d:%02d.%03d" % [minutes, seconds, milliseconds]
 
 func _on_SyringeSpawnTimer_timeout():
 	$MobSpawnPath/MobSpawnLocation.offset = randi()

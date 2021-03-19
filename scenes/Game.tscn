@@ -29,6 +29,7 @@ Syringe = ExtResource( 3 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
 autostart = true
 
 [node name="SyringeSpawnTimer" type="Timer" parent="."]
