@@ -5,6 +5,7 @@ var stopped = false
 
 signal hit_by_enemy
 signal victim_infected
+signal moved
 
 func _physics_process(delta):
 	if stopped:
@@ -24,6 +25,7 @@ func _physics_process(delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		position += velocity * delta
+		emit_signal("moved")
 
 func _on_body_entered(body):
 	if body.is_in_group("enemy"):

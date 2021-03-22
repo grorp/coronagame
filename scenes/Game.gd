@@ -1,6 +1,11 @@
 extends Node
 
 export (PackedScene) var Syringe
+export (PackedScene) var Human
+
+var generated_chunks = []
+const CHUNK_SIZE = Vector2(500, 500)
+var chunk_generation_radius = null
 
 var infected_people = 0
 var start_time = null
@@ -8,12 +13,19 @@ var active_syringes = 0
 
 func _ready():
 	_MobSpawnPath_set_points()
-	get_viewport().connect("size_changed", self, "_MobSpawnPath_set_points")
+	_calculate_chunk_generation_radius()
+	_generate_chunks()
+	get_viewport().connect("size_changed", self, "_on_Viewport_size_changed")
 	if Global.difficulty == Global.Difficulty.HARD:
 		$SyringeSpawnTimer.wait_time = 0.25
 	elif Global.difficulty == Global.Difficulty.INSTANT_DEATH:
 		$SyringeSpawnTimer.wait_time = 0.001
 	start_time = OS.get_system_time_msecs()
+
+func _on_Viewport_size_changed():
+	_MobSpawnPath_set_points()
+	_calculate_chunk_generation_radius()
+	_generate_chunks()
 
 func _MobSpawnPath_set_points():
 	$MobSpawnPath.curve = Curve2D.new()
@@ -83,3 +95,28 @@ func _on_Player_victim_infected(victim):
 		victim.infect()
 		infected_people += 1
 		$HUD/HBoxContainer/InfectedPeopleLabel.text = "Infected people:\n%d" % infected_people
+
+func _calculate_chunk_generation_radius():
+	chunk_generation_radius = Vector2(
+		ceil(get_viewport().size.x / CHUNK_SIZE.x / 2),
+		ceil(get_viewport().size.y / CHUNK_SIZE.y / 2)
+	)
+
+func _generate_chunks():
+	var current_chunk = $Player.position
+	current_chunk.x = floor(current_chunk.x / CHUNK_SIZE.x)
+	current_chunk.y = floor(current_chunk.y / CHUNK_SIZE.y)
+	var min_chunk = current_chunk - chunk_generation_radius
+	var max_chunk = current_chunk + chunk_generation_radius
+	for i in range(min_chunk.x, max_chunk.x + 1):
+		for j in range(min_chunk.y, max_chunk.y + 1):
+			var chunk = Vector2(i, j)
+			if !generated_chunks.has(chunk):
+				for _i in range(0, rand_range(1, 2)):
+					var human = Human.instance()
+					add_child(human)
+					human.position = Vector2(
+						rand_range(chunk.x*CHUNK_SIZE.x, chunk.x*CHUNK_SIZE.x+CHUNK_SIZE.x),
+						rand_range(chunk.y*CHUNK_SIZE.y, chunk.y*CHUNK_SIZE.y+CHUNK_SIZE.y)
+					)
+				generated_chunks.append(chunk)
