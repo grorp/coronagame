@@ -1,11 +1,15 @@
 extends Area2D
 
-const speed = 300
+var speed = 300
 var stopped = false
 
 signal hit_by_enemy
 signal victim_infected
 signal moved
+
+func _ready():
+	if Global.difficulty == Global.Difficulty.HARD:
+		speed = 500
 
 func _physics_process(delta):
 	if stopped:
