@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/virus_rainbow.png-49a78dc05d681ea05b9a4d5259701d6d.stex"
+path="res://.import/virus.png-7c212bca769c293dc74107f3315e46f4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/virus_rainbow.png"
-dest_files=[ "res://.import/virus_rainbow.png-49a78dc05d681ea05b9a4d5259701d6d.stex" ]
+source_file="res://assets/textures/virus/virus.png"
+dest_files=[ "res://.import/virus.png-7c212bca769c293dc74107f3315e46f4.stex" ]
 
 [params]
 
