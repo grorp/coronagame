@@ -4,7 +4,7 @@ export (PackedScene) var Syringe
 export (PackedScene) var Human
 
 var generated_chunks = []
-const CHUNK_SIZE = Vector2(500, 500)
+const CHUNK_SIZE = Vector2(750, 750)
 var chunk_generation_radius = null
 
 var infected_people = 0
@@ -18,7 +18,7 @@ func _ready():
 	get_viewport().connect("size_changed", self, "_on_Viewport_size_changed")
 	if Global.difficulty == Global.Difficulty.HARD:
 		$SyringeSpawnTimer.wait_time = 0.25
-	elif Global.difficulty == Global.Difficulty.INSTANT_DEATH:
+	elif Global.difficulty == Global.Difficulty.YOU_CANNOT_ESCAPE:
 		$SyringeSpawnTimer.wait_time = 0.001
 	start_time = OS.get_system_time_msecs()
 
@@ -64,10 +64,14 @@ func _on_SyringeSpawnTimer_timeout():
 		syringe.rotation = $MobSpawnPath/MobSpawnLocation.rotation + PI / 2
 		syringe.rotation += rand_range(-PI / 4, PI / 4)
 	
-	if Global.difficulty != Global.Difficulty.HARD:
+	if Global.difficulty == Global.Difficulty.EASY:
+		syringe.linear_velocity = Vector2(rand_range(300, 500), 0)
+	elif Global.difficulty == Global.Difficulty.NORMAL:
 		syringe.linear_velocity = Vector2(rand_range(400, 600), 0)
-	else:
-		syringe.linear_velocity = Vector2(rand_range(800, 1000), 0)
+	elif Global.difficulty == Global.Difficulty.HARD:
+		syringe.linear_velocity = Vector2(rand_range(700, 900), 0)
+	elif Global.difficulty == Global.Difficulty.YOU_CANNOT_ESCAPE:
+		syringe.linear_velocity = Vector2(rand_range(100, 200), 0)
 	syringe.linear_velocity = syringe.linear_velocity.rotated(syringe.rotation)
 	
 	active_syringes += 1

@@ -2,7 +2,7 @@ extends Node
 
 const SETTINGS_FILE_PATH = "user://settings.dat"
 
-enum Difficulty {EASY, NORMAL, HARD, INSTANT_DEATH}
+enum Difficulty {EASY, NORMAL, HARD, YOU_CANNOT_ESCAPE}
 
 var difficulty = Difficulty.NORMAL
 
