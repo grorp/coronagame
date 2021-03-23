@@ -39,3 +39,7 @@ func save_settings():
 	f.store_var(player_skin)
 	f.store_var(player_accessoire)
 	f.close()
+
+func _notification(what):
+	if (what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST):
+		get_tree().change_scene("res://scenes/ConfirmExitMenu.tscn")
