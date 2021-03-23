@@ -1,0 +1,122 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/textures/virus/virus_robot.png" type="Texture" id=1]
+[ext_resource path="res://assets/Theme.tres" type="Theme" id=2]
+[ext_resource path="res://scenes/ItemShop.gd" type="Script" id=3]
+[ext_resource path="res://assets/textures/virus/virus_rainbow.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/virus/virus_glasses.png" type="Texture" id=5]
+[ext_resource path="res://assets/textures/virus/virus.png" type="Texture" id=6]
+
+[node name="ItemShop" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.054902, 0.458824, 0.454902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+custom_constants/separation = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 1048.0
+
+[node name="CoronaButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 200 )
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="RobotButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+margin_top = 204.0
+margin_right = 200.0
+margin_bottom = 404.0
+rect_min_size = Vector2( 200, 200 )
+texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+
+[node name="RainbowButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+margin_top = 408.0
+margin_right = 200.0
+margin_bottom = 608.0
+rect_min_size = Vector2( 200, 200 )
+texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="Spacer" type="Control" parent="HBoxContainer/VBoxContainer"]
+margin_top = 612.0
+margin_right = 200.0
+margin_bottom = 1000.0
+size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_top = 1004.0
+margin_right = 200.0
+margin_bottom = 1048.0
+text = "Back"
+
+[node name="PreviewContainer" type="Control" parent="HBoxContainer"]
+margin_left = 232.0
+margin_right = 1656.0
+margin_bottom = 1048.0
+size_flags_horizontal = 3
+
+[node name="Preview" type="TextureRect" parent="HBoxContainer/PreviewContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+texture = ExtResource( 6 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AccessoirePreview" type="TextureRect" parent="HBoxContainer/PreviewContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 1688.0
+margin_right = 1888.0
+margin_bottom = 1048.0
+
+[node name="GlassesButton" type="TextureButton" parent="HBoxContainer/VBoxContainer2"]
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 200 )
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/CoronaButton" to="." method="_on_CoronaButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/RobotButton" to="." method="_on_RobotButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/RainbowButton" to="." method="_on_RainbowButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/GlassesButton" to="." method="_on_GlassesButton_pressed"]

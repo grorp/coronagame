@@ -15,3 +15,6 @@ func _on_PlayButton_pressed():
 
 func _on_DifficultyButton_pressed():
 	get_tree().change_scene("res://scenes/DifficultyMenu.tscn")
+
+func _on_ItemShopButton_pressed():
+	get_tree().change_scene("res://scenes/ItemShop.tscn")

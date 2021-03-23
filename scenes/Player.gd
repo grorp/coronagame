@@ -10,6 +10,14 @@ signal moved
 func _ready():
 	if Global.difficulty == Global.Difficulty.HARD:
 		speed = 500
+	
+	if Global.player_skin == Global.PlayerSkins.ROBOT:
+		$Sprite.texture = load("res://assets/textures/virus/virus_robot.png")
+	elif Global.player_skin == Global.PlayerSkins.RAINBOW:
+		$Sprite.texture = load("res://assets/textures/virus/virus_rainbow.png")
+	
+	if Global.player_accessoire == Global.PlayerAccessoires.GLASSES:
+		$AccessoireSprite.texture = load("res://assets/textures/virus/virus_glasses.png")
 
 func _physics_process(delta):
 	if stopped:
