@@ -17,4 +17,4 @@ func _on_DifficultyButton_pressed():
 	get_tree().change_scene("res://scenes/DifficultyMenu.tscn")
 
 func _on_SkinsButton_pressed():
-	get_tree().change_scene("res://scenes/SkinsMenu.tscn")
+	get_tree().change_scene("res://scenes/SkinMenu.tscn")

@@ -11,8 +11,12 @@ func _ready():
 	if Global.difficulty == Global.Difficulty.HARD:
 		speed = 500
 	
-	$Sprite.texture = Global.PLAYER_SKIN_TEXTURES[Global.player_skin]
-	$AccessoireSprite.texture = Global.PLAYER_ACCESSOIRE_TEXTURES[Global.player_accessoire]
+	$Sprite.texture = Global.PLAYER_SKINS[Global.player_skin]
+	for accessoire in Global.player_accessoires:
+		var sprite = Sprite.new()
+		sprite.texture = Global.PLAYER_ACCESSOIRES[accessoire]
+		sprite.scale = Vector2(3, 3)
+		add_child(sprite)
 
 func _physics_process(delta):
 	if stopped:

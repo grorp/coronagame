@@ -5,22 +5,19 @@ const SETTINGS_FILE_PATH = "user://settings.dat"
 enum Difficulty {EASY, NORMAL, HARD, YOU_CANNOT_ESCAPE}
 var difficulty = Difficulty.NORMAL
 
-enum PlayerSkins {CORONA, ROBOT, RAINBOW, EYE}
-var PLAYER_SKIN_TEXTURES = {
-	PlayerSkins.CORONA: load("res://assets/textures/player/skins/corona.png"),
-	PlayerSkins.ROBOT: load("res://assets/textures/player/skins/robot.png"),
-	PlayerSkins.RAINBOW: load("res://assets/textures/player/skins/rainbow.png"),
-	PlayerSkins.EYE: load("res://assets/textures/player/skins/eye.png"),
+var PLAYER_SKINS = {
+	"corona": load("res://assets/textures/player/skins/corona.png"),
+	"robot": load("res://assets/textures/player/skins/robot.png"),
+	"rainbow": load("res://assets/textures/player/skins/rainbow.png"),
+	"eye": load("res://assets/textures/player/skins/eye.png"),
 }
-var player_skin = PlayerSkins.CORONA
+var player_skin = PLAYER_SKINS.corona
 
-enum PlayerAccessoires {NOTHING, GLASSES, MASK}
-var PLAYER_ACCESSOIRE_TEXTURES = {
-	PlayerAccessoires.NOTHING: null,
-	PlayerAccessoires.GLASSES: load("res://assets/textures/player/accessoires/glasses.png"),
-	PlayerAccessoires.MASK: load("res://assets/textures/player/accessoires/mask.png"),
+var PLAYER_ACCESSOIRES = {
+	"glasses": load("res://assets/textures/player/accessoires/glasses.png"),
+	"mask": load("res://assets/textures/player/accessoires/mask.png"),
 }
-var player_accessoire = PlayerAccessoires.NOTHING
+var player_accessoires = []
 
 func _ready():
 	randomize()
@@ -30,7 +27,7 @@ func _ready():
 		f.open(SETTINGS_FILE_PATH, File.READ)
 		difficulty = f.get_var()
 		player_skin = f.get_var()
-		player_accessoire = f.get_var()
+		player_accessoires = f.get_var()
 		f.close()
 
 func save_settings():
@@ -38,7 +35,7 @@ func save_settings():
 	f.open(SETTINGS_FILE_PATH, File.WRITE)
 	f.store_var(difficulty)
 	f.store_var(player_skin)
-	f.store_var(player_accessoire)
+	f.store_var(player_accessoires)
 	f.close()
 
 func _notification(what):
