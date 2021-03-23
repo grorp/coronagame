@@ -6,9 +6,19 @@ enum Difficulty {EASY, NORMAL, HARD, YOU_CANNOT_ESCAPE}
 var difficulty = Difficulty.NORMAL
 
 enum PlayerSkins {CORONA, ROBOT, RAINBOW, EYE}
+var PLAYER_SKIN_TEXTURES = {
+	PlayerSkins.CORONA: load("res://assets/textures/virus/virus.png"),
+	PlayerSkins.ROBOT: load("res://assets/textures/virus/virus_robot.png"),
+	PlayerSkins.RAINBOW: load("res://assets/textures/virus/virus_rainbow.png"),
+	PlayerSkins.EYE: load("res://assets/textures/virus/virus_eye.png"),
+}
 var player_skin = PlayerSkins.CORONA
 
 enum PlayerAccessoires {NOTHING, GLASSES}
+var PLAYER_ACCESSOIRE_TEXTURES = {
+	PlayerAccessoires.NOTHING: null,
+	PlayerAccessoires.GLASSES: load("res://assets/textures/virus/virus_glasses.png"),
+}
 var player_accessoire = PlayerAccessoires.NOTHING
 
 func _ready():

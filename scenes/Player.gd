@@ -11,15 +11,8 @@ func _ready():
 	if Global.difficulty == Global.Difficulty.HARD:
 		speed = 500
 	
-	if Global.player_skin == Global.PlayerSkins.ROBOT:
-		$Sprite.texture = load("res://assets/textures/virus/virus_robot.png")
-	elif Global.player_skin == Global.PlayerSkins.RAINBOW:
-		$Sprite.texture = load("res://assets/textures/virus/virus_rainbow.png")
-	elif Global.player_skin == Global.PlayerSkins.EYE:
-		$Sprite.texture = load("res://assets/textures/virus/virus_eye.png")
-	
-	if Global.player_accessoire == Global.PlayerAccessoires.GLASSES:
-		$AccessoireSprite.texture = load("res://assets/textures/virus/virus_glasses.png")
+	$Sprite.texture = Global.PLAYER_SKIN_TEXTURES[Global.player_skin]
+	$AccessoireSprite.texture = Global.PLAYER_ACCESSOIRE_TEXTURES[Global.player_accessoire]
 
 func _physics_process(delta):
 	if stopped:
