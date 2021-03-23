@@ -14,10 +14,11 @@ var PLAYER_SKIN_TEXTURES = {
 }
 var player_skin = PlayerSkins.CORONA
 
-enum PlayerAccessoires {NOTHING, GLASSES}
+enum PlayerAccessoires {NOTHING, GLASSES, MASK}
 var PLAYER_ACCESSOIRE_TEXTURES = {
 	PlayerAccessoires.NOTHING: null,
 	PlayerAccessoires.GLASSES: load("res://assets/textures/virus/virus_glasses.png"),
+	PlayerAccessoires.MASK: load("res://assets/textures/virus/virus_mask.png"),
 }
 var player_accessoire = PlayerAccessoires.NOTHING
 
