@@ -1,42 +1,38 @@
 extends Control
 
 func _ready():
-	if Global.player_skin == Global.PlayerSkins.EYE:
-		$HBoxContainer/VBoxContainer2/GlassesButton.hide()
+	for skin in Global.PlayerSkins:
+		var btn = TextureButton.new()
+		btn.texture_normal = Global.PLAYER_SKIN_TEXTURES[Global.PlayerSkins[skin]]
+		btn.rect_min_size = Vector2(200, 200)
+		btn.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+		btn.expand = true
+		btn.connect("pressed", self, "_on_SkinButton_pressed", [skin])
+		$HBoxContainer/VBoxContainer/SkinList.add_child(btn)
+	
+	for accessoire in Global.PlayerAccessoires:
+		if accessoire == "NOTHING":
+			continue
+		var btn = TextureButton.new()
+		btn.texture_normal = Global.PLAYER_ACCESSOIRE_TEXTURES[Global.PlayerAccessoires[accessoire]]
+		btn.rect_min_size = Vector2(200, 200)
+		btn.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+		btn.expand = true
+		btn.connect("pressed", self, "_on_AccessoireButton_pressed", [accessoire])
+		$HBoxContainer/AccessoiresList.add_child(btn)
 
-func _on_CoronaButton_pressed():
-	Global.player_skin = Global.PlayerSkins.CORONA
-	$HBoxContainer/VirusPreview.set_textures()
-	$HBoxContainer/VBoxContainer2/GlassesButton.show()
+func _on_SkinButton_pressed(skin):
+	Global.player_skin = Global.PlayerSkins[skin]
 	Global.save_settings()
-
-func _on_RobotButton_pressed():
-	Global.player_skin = Global.PlayerSkins.ROBOT
 	$HBoxContainer/VirusPreview.set_textures()
-	$HBoxContainer/VBoxContainer2/GlassesButton.show()
-	Global.save_settings()
 
-func _on_RainbowButton_pressed():
-	Global.player_skin = Global.PlayerSkins.RAINBOW
-	$HBoxContainer/VirusPreview.set_textures()
-	$HBoxContainer/VBoxContainer2/GlassesButton.show()
-	Global.save_settings()
-
-func _on_EyeButton_pressed():
-	Global.player_skin = Global.PlayerSkins.EYE
-	if Global.player_accessoire == Global.PlayerAccessoires.GLASSES:
-		Global.player_accessoire = Global.PlayerAccessoires.NOTHING
-	$HBoxContainer/VirusPreview.set_textures()
-	$HBoxContainer/VBoxContainer2/GlassesButton.hide()
-	Global.save_settings()
-
-func _on_GlassesButton_pressed():
-	if Global.player_accessoire != Global.PlayerAccessoires.GLASSES:
-		Global.player_accessoire = Global.PlayerAccessoires.GLASSES
+func _on_AccessoireButton_pressed(accessoire):
+	if Global.player_accessoire != Global.PlayerAccessoires[accessoire]:
+		Global.player_accessoire = Global.PlayerAccessoires[accessoire]
 	else:
 		Global.player_accessoire = Global.PlayerAccessoires.NOTHING
-	$HBoxContainer/VirusPreview.set_textures()
 	Global.save_settings()
+	$HBoxContainer/VirusPreview.set_textures()
 
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://scenes/MainMenu.tscn")
