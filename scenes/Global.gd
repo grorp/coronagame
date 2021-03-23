@@ -11,7 +11,7 @@ var PLAYER_SKINS = {
 	"rainbow": load("res://assets/textures/player/skins/rainbow.png"),
 	"eye": load("res://assets/textures/player/skins/eye.png"),
 }
-var player_skin = PLAYER_SKINS.corona
+var player_skin = "corona"
 
 var PLAYER_ACCESSOIRES = {
 	"glasses": load("res://assets/textures/player/accessoires/glasses.png"),
