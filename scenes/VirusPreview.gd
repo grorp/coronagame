@@ -10,6 +10,8 @@ func set_textures():
 		$TextureRect.texture = load("res://assets/textures/virus/virus_robot.png")
 	elif Global.player_skin == Global.PlayerSkins.RAINBOW:
 		$TextureRect.texture = load("res://assets/textures/virus/virus_rainbow.png")
+	elif Global.player_skin == Global.PlayerSkins.EYE:
+		$TextureRect.texture = load("res://assets/textures/virus/virus_eye.png")
 	
 	if Global.player_accessoire == Global.PlayerAccessoires.GLASSES:
 		$AccessoireTextureRect.texture = load("res://assets/textures/virus/virus_glasses.png")

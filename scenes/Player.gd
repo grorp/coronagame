@@ -15,6 +15,8 @@ func _ready():
 		$Sprite.texture = load("res://assets/textures/virus/virus_robot.png")
 	elif Global.player_skin == Global.PlayerSkins.RAINBOW:
 		$Sprite.texture = load("res://assets/textures/virus/virus_rainbow.png")
+	elif Global.player_skin == Global.PlayerSkins.EYE:
+		$Sprite.texture = load("res://assets/textures/virus/virus_eye.png")
 	
 	if Global.player_accessoire == Global.PlayerAccessoires.GLASSES:
 		$AccessoireSprite.texture = load("res://assets/textures/virus/virus_glasses.png")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/SkinsMenu.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/textures/virus/virus_rainbow.png" type="Texture" id=5]
 [ext_resource path="res://assets/textures/virus/virus_robot.png" type="Texture" id=6]
 [ext_resource path="res://scenes/VirusPreview.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/textures/virus/virus_eye.png" type="Texture" id=8]
 
 [node name="SkinsMenu" type="Control"]
 anchor_right = 1.0
@@ -40,6 +41,7 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 margin_right = 200.0
 margin_bottom = 1048.0
+rect_min_size = Vector2( 200, 0 )
 
 [node name="CoronaButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
 margin_right = 200.0
@@ -67,8 +69,17 @@ texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
-[node name="Spacer" type="Control" parent="HBoxContainer/VBoxContainer"]
+[node name="EyeButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
 margin_top = 612.0
+margin_right = 200.0
+margin_bottom = 812.0
+rect_min_size = Vector2( 200, 200 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+
+[node name="Spacer" type="Control" parent="HBoxContainer/VBoxContainer"]
+margin_top = 816.0
 margin_right = 200.0
 margin_bottom = 1000.0
 size_flags_vertical = 3
@@ -89,6 +100,7 @@ size_flags_horizontal = 3
 margin_left = 1688.0
 margin_right = 1888.0
 margin_bottom = 1048.0
+rect_min_size = Vector2( 200, 0 )
 
 [node name="GlassesButton" type="TextureButton" parent="HBoxContainer/VBoxContainer2"]
 margin_right = 200.0
@@ -100,5 +112,6 @@ stretch_mode = 5
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/CoronaButton" to="." method="_on_CoronaButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/RobotButton" to="." method="_on_RobotButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/RainbowButton" to="." method="_on_RainbowButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/EyeButton" to="." method="_on_EyeButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/GlassesButton" to="." method="_on_GlassesButton_pressed"]
