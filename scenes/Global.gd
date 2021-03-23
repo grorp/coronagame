@@ -7,18 +7,18 @@ var difficulty = Difficulty.NORMAL
 
 enum PlayerSkins {CORONA, ROBOT, RAINBOW, EYE}
 var PLAYER_SKIN_TEXTURES = {
-	PlayerSkins.CORONA: load("res://assets/textures/virus/virus.png"),
-	PlayerSkins.ROBOT: load("res://assets/textures/virus/virus_robot.png"),
-	PlayerSkins.RAINBOW: load("res://assets/textures/virus/virus_rainbow.png"),
-	PlayerSkins.EYE: load("res://assets/textures/virus/virus_eye.png"),
+	PlayerSkins.CORONA: load("res://assets/textures/player/skins/corona.png"),
+	PlayerSkins.ROBOT: load("res://assets/textures/player/skins/robot.png"),
+	PlayerSkins.RAINBOW: load("res://assets/textures/player/skins/rainbow.png"),
+	PlayerSkins.EYE: load("res://assets/textures/player/skins/eye.png"),
 }
 var player_skin = PlayerSkins.CORONA
 
 enum PlayerAccessoires {NOTHING, GLASSES, MASK}
 var PLAYER_ACCESSOIRE_TEXTURES = {
 	PlayerAccessoires.NOTHING: null,
-	PlayerAccessoires.GLASSES: load("res://assets/textures/virus/virus_glasses.png"),
-	PlayerAccessoires.MASK: load("res://assets/textures/virus/virus_mask.png"),
+	PlayerAccessoires.GLASSES: load("res://assets/textures/player/accessoires/glasses.png"),
+	PlayerAccessoires.MASK: load("res://assets/textures/player/accessoires/mask.png"),
 }
 var player_accessoire = PlayerAccessoires.NOTHING
 

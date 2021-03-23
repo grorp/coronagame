@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/virus_rainbow.png-337e8e676193cffd4d470723c0ea2f43.stex"
+path="res://.import/mask.png-3e07e4d5775bdf0362bf835c43c7a8ca.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/virus/virus_rainbow.png"
-dest_files=[ "res://.import/virus_rainbow.png-337e8e676193cffd4d470723c0ea2f43.stex" ]
+source_file="res://assets/textures/player/accessoires/mask.png"
+dest_files=[ "res://.import/mask.png-3e07e4d5775bdf0362bf835c43c7a8ca.stex" ]
 
 [params]
 

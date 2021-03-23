@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/virus_glasses.png-00d3531453efe78b91d3b626bb7a009a.stex"
+path="res://.import/robot.png-1458a6b11b489ef2ace0586a2890f501.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/virus/virus_glasses.png"
-dest_files=[ "res://.import/virus_glasses.png-00d3531453efe78b91d3b626bb7a009a.stex" ]
+source_file="res://assets/textures/player/skins/robot.png"
+dest_files=[ "res://.import/robot.png-1458a6b11b489ef2ace0586a2890f501.stex" ]
 
 [params]
 

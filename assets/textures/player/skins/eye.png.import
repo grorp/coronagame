@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/virus_mask.png-749945798958a99b5bebae9feac9eb96.stex"
+path="res://.import/eye.png-59265ee0729d11528b073215caab1191.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/virus/virus_mask.png"
-dest_files=[ "res://.import/virus_mask.png-749945798958a99b5bebae9feac9eb96.stex" ]
+source_file="res://assets/textures/player/skins/eye.png"
+dest_files=[ "res://.import/eye.png-59265ee0729d11528b073215caab1191.stex" ]
 
 [params]
 

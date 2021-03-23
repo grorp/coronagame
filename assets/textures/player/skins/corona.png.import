@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/virus.png-7c212bca769c293dc74107f3315e46f4.stex"
+path="res://.import/corona.png-3dfbe3c8c3ebe8d6f30cc2bd41dc653b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/virus/virus.png"
-dest_files=[ "res://.import/virus.png-7c212bca769c293dc74107f3315e46f4.stex" ]
+source_file="res://assets/textures/player/skins/corona.png"
+dest_files=[ "res://.import/corona.png-3dfbe3c8c3ebe8d6f30cc2bd41dc653b.stex" ]
 
 [params]
 
