@@ -61,32 +61,34 @@ custom_constants/separation = 16
 alignment = 1
 
 [node name="Spacer" type="Control" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 123.0
+margin_top = 69.0
 margin_right = 690.0
-margin_bottom = 167.0
+margin_bottom = 113.0
 rect_min_size = Vector2( 0, 44 )
 
 [node name="TitleLabel" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 183.0
+margin_top = 129.0
 margin_right = 690.0
-margin_bottom = 207.0
+margin_bottom = 153.0
 custom_fonts/font = SubResource( 1 )
 text = "About"
 
 [node name="AboutTxt" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-margin_top = 223.0
+margin_top = 169.0
 margin_right = 690.0
-margin_bottom = 328.0
+margin_bottom = 382.0
 rect_min_size = Vector2( 690, 0 )
 custom_fonts/font = SubResource( 2 )
-text = "This game was developed by Gregor Parzefall and Marlon Peters for a school project during the corona pandemic. It is using the Godot game engine."
+text = "You are the coronavirus. Infect as many people as possible and try not to get hit by a syringe of vaccine.
+
+This game was developed by Gregor Parzefall and Marlon Peters for a school project during the corona pandemic. It is using the Godot game engine."
 autowrap = true
 
 [node name="BackButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 margin_left = 598.0
-margin_top = 344.0
+margin_top = 398.0
 margin_right = 690.0
-margin_bottom = 388.0
+margin_bottom = 442.0
 size_flags_horizontal = 8
 text = "Back"
 [connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
