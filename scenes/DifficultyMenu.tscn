@@ -101,12 +101,12 @@ margin_right = 300.0
 margin_bottom = 344.0
 text = "You can't escape"
 
-[node name="ItemShopButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+[node name="SkinsButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 margin_top = 360.0
 margin_right = 300.0
 margin_bottom = 404.0
 disabled = true
-text = "Item shop"
+text = "Skins"
 
 [node name="AboutButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 margin_top = 420.0

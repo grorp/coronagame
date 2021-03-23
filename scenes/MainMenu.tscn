@@ -73,11 +73,11 @@ margin_right = 300.0
 margin_bottom = 218.0
 text = "Difficulty"
 
-[node name="ItemShopButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+[node name="SkinsButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 margin_top = 234.0
 margin_right = 300.0
 margin_bottom = 278.0
-text = "Item shop"
+text = "Skins"
 
 [node name="AboutButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 margin_top = 294.0
@@ -92,6 +92,6 @@ margin_bottom = 398.0
 text = "Exit"
 [connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/DifficultyButton" to="." method="_on_DifficultyButton_pressed"]
-[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/ItemShopButton" to="." method="_on_ItemShopButton_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/SkinsButton" to="." method="_on_SkinsButton_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/AboutButton" to="." method="_on_AboutButton_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
