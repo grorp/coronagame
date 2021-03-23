@@ -72,7 +72,7 @@ margin_top = 183.0
 margin_right = 690.0
 margin_bottom = 207.0
 custom_fonts/font = SubResource( 1 )
-text = "ABOUT"
+text = "About"
 
 [node name="AboutTxt" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 margin_top = 223.0
