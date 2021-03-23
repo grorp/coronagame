@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/SkinsMenu.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/textures/virus/virus.png" type="Texture" id=4]
 [ext_resource path="res://assets/textures/virus/virus_rainbow.png" type="Texture" id=5]
 [ext_resource path="res://assets/textures/virus/virus_robot.png" type="Texture" id=6]
+[ext_resource path="res://scenes/VirusPreview.tscn" type="PackedScene" id=7]
 
 [node name="SkinsMenu" type="Control"]
 anchor_right = 1.0
@@ -78,30 +79,11 @@ margin_right = 200.0
 margin_bottom = 1048.0
 text = "Back"
 
-[node name="PreviewContainer" type="Control" parent="HBoxContainer"]
+[node name="VirusPreview" parent="HBoxContainer" instance=ExtResource( 7 )]
 margin_left = 232.0
 margin_right = 1656.0
 margin_bottom = 1048.0
 size_flags_horizontal = 3
-
-[node name="Preview" type="TextureRect" parent="HBoxContainer/PreviewContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-texture = ExtResource( 4 )
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AccessoirePreview" type="TextureRect" parent="HBoxContainer/PreviewContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-expand = true
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
 margin_left = 1688.0
