@@ -12,7 +12,7 @@ func _ready():
 	
 	for accessoire in Global.PLAYER_ACCESSOIRES:
 		var btn = TextureButton.new()
-		btn.texture_normal = Global.PLAYER_ACCESSOIRES[accessoire]
+		btn.texture_normal = Global.PLAYER_ACCESSOIRES[accessoire][0]
 		btn.rect_min_size = Vector2(150, 150)
 		btn.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
 		btn.expand = true

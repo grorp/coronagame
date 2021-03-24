@@ -9,7 +9,10 @@ func set_textures():
 		node.queue_free()
 	for accessoire in Global.player_accessoires:
 		var texture_rect = TextureRect.new()
-		texture_rect.texture = Global.PLAYER_ACCESSOIRES[accessoire]
+		if Global.PLAYER_ACCESSOIRES[accessoire][1].has(Global.player_skin):
+			texture_rect.texture = Global.PLAYER_ACCESSOIRES[accessoire][1][Global.player_skin]
+		else:
+			texture_rect.texture = Global.PLAYER_ACCESSOIRES[accessoire][0]
 		texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		texture_rect.anchor_right = 1
 		texture_rect.anchor_bottom = 1

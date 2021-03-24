@@ -14,8 +14,18 @@ var PLAYER_SKINS = {
 var player_skin = "corona"
 
 var PLAYER_ACCESSOIRES = {
-	"glasses": load("res://assets/textures/player/accessoires/glasses.png"),
-	"mask": load("res://assets/textures/player/accessoires/mask.png"),
+	"glasses": [
+		load("res://assets/textures/player/accessoires/glasses.png"),
+		{
+			"eye": load("res://assets/textures/player/accessoires/glasses_eye.png")
+		},
+	],
+	"mask": [
+		load("res://assets/textures/player/accessoires/mask.png"),
+		{
+			"eye": load("res://assets/textures/player/accessoires/mask_eye.png"),
+		},
+	],
 }
 var player_accessoires = []
 

@@ -14,7 +14,10 @@ func _ready():
 	$Sprite.texture = Global.PLAYER_SKINS[Global.player_skin]
 	for accessoire in Global.player_accessoires:
 		var sprite = Sprite.new()
-		sprite.texture = Global.PLAYER_ACCESSOIRES[accessoire]
+		if Global.PLAYER_ACCESSOIRES[accessoire][1].has(Global.player_skin):
+			sprite.texture = Global.PLAYER_ACCESSOIRES[accessoire][1][Global.player_skin]
+		else:
+			sprite.texture = Global.PLAYER_ACCESSOIRES[accessoire][0]
 		sprite.scale = Vector2(3, 3)
 		add_child(sprite)
 
