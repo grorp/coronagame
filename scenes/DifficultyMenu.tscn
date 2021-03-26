@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/DifficultyMenu.gd" type="Script" id=1]
 [ext_resource path="res://assets/Theme.tres" type="Theme" id=2]
-[ext_resource path="res://scenes/VirusPreview.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/PlayerPreview.tscn" type="PackedScene" id=3]
 
 [sub_resource type="InputEventAction" id=1]
 action = "ui_select"
@@ -45,7 +45,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VirusPreview" parent="CenterContainer/HBoxContainer" instance=ExtResource( 3 )]
+[node name="PlayerPreview" parent="CenterContainer/HBoxContainer" instance=ExtResource( 3 )]
 margin_right = 512.0
 margin_bottom = 524.0
 rect_min_size = Vector2( 512, 512 )

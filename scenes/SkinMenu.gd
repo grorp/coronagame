@@ -25,7 +25,7 @@ func _ready():
 func _on_SkinButton_pressed(skin):
 	Global.player_skin = skin
 	Global.save_settings()
-	$HBoxContainer/CenterContainer/VirusPreview.set_textures()
+	$HBoxContainer/CenterContainer/PlayerPreview.set_textures()
 
 func _on_AccessoireButton_pressed(accessoire):
 	if !Global.player_accessoires.has(accessoire):
@@ -33,7 +33,7 @@ func _on_AccessoireButton_pressed(accessoire):
 	else:
 		Global.player_accessoires.erase(accessoire)
 	Global.save_settings()
-	$HBoxContainer/CenterContainer/VirusPreview.set_textures()
+	$HBoxContainer/CenterContainer/PlayerPreview.set_textures()
 
 func on_ListScrollbar_visibility_changed(node):
 	if !node.get_v_scrollbar().visible:
