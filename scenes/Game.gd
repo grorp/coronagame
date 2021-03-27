@@ -87,13 +87,12 @@ func _on_Syringe_tree_exited():
 	_check_game_over()
 
 func _on_Player_hit_by_enemy(enemy):
-	enemy.get_node("PlayerHitSound").play()
+	enemy.hit_player()
 	if not $Player.stopped:
 		$Player.stopped = true
 		$Timer.stop()
 		$SyringeSpawnTimer.stop()
 		$HUD/GameOverTxt.show()
-	enemy.linear_velocity = Vector2(0, 0)
 	active_syringes -= 1
 	_check_game_over()
 
