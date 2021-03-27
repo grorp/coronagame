@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Game.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/Theme.tres" type="Theme" id=5]
 [ext_resource path="res://assets/font/PressStart2P.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://scenes/Human.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sounds/game_over.ogg" type="AudioStream" id=8]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -110,10 +111,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AfterGameOverTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -128,9 +125,12 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 [connection signal="hit_by_enemy" from="Player" to="." method="_on_Player_hit_by_enemy"]
 [connection signal="moved" from="Player" to="." method="_generate_chunks"]
 [connection signal="victim_infected" from="Player" to="." method="_on_Player_victim_infected"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="SyringeSpawnTimer" to="." method="_on_SyringeSpawnTimer_timeout"]
-[connection signal="timeout" from="AfterGameOverTimer" to="." method="_on_AfterGameOverTimer_timeout"]
+[connection signal="finished" from="GameOverSound" to="." method="_on_GameOverSoundPlayer_finished"]

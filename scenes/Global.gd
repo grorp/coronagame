@@ -29,6 +29,8 @@ var PLAYER_ACCESSOIRES = {
 }
 var player_accessoires = []
 
+var click_sound = null
+
 func _ready():
 	randomize()
 	
@@ -39,6 +41,10 @@ func _ready():
 		player_skin = f.get_var()
 		player_accessoires = f.get_var()
 		f.close()
+	
+	click_sound = AudioStreamPlayer.new()
+	click_sound.stream = load("res://assets/sounds/click.ogg")
+	add_child(click_sound)
 
 func save_settings():
 	var f = File.new()

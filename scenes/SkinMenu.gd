@@ -23,11 +23,13 @@ func _ready():
 	$HBoxContainer/ScrollContainer.get_v_scrollbar().connect("visibility_changed", self, "on_ListScrollbar_visibility_changed", [$HBoxContainer/ScrollContainer])
 
 func _on_SkinButton_pressed(skin):
+	Global.click_sound.play()
 	Global.player_skin = skin
 	Global.save_settings()
 	$HBoxContainer/CenterContainer/PlayerPreview.set_textures()
 
 func _on_AccessoireButton_pressed(accessoire):
+	Global.click_sound.play()
 	if !Global.player_accessoires.has(accessoire):
 		Global.player_accessoires.push_back(accessoire)
 	else:
@@ -42,8 +44,10 @@ func on_ListScrollbar_visibility_changed(node):
 		node.rect_min_size.x = 172
 
 func _on_BackButton_pressed():
+	Global.click_sound.play()
 	get_tree().change_scene("res://scenes/MainMenu.tscn")
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):
+		Global.click_sound.play()
 		get_tree().change_scene("res://scenes/MainMenu.tscn")

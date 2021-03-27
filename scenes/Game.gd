@@ -37,6 +37,7 @@ func _MobSpawnPath_set_points():
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):
+		Global.click_sound.play()
 		get_tree().change_scene("res://scenes/MainMenu.tscn")
 
 func _on_Timer_timeout():
@@ -79,13 +80,14 @@ func _on_SyringeSpawnTimer_timeout():
 
 func _check_game_over():
 	if $Player.stopped and active_syringes == 0:
-		$AfterGameOverTimer.start()
+		$GameOverSound.play()
 
 func _on_Syringe_tree_exited():
 	active_syringes -= 1
 	_check_game_over()
 
 func _on_Player_hit_by_enemy(enemy):
+	enemy.get_node("PlayerHitSound").play()
 	if not $Player.stopped:
 		$Player.stopped = true
 		$Timer.stop()
@@ -95,7 +97,7 @@ func _on_Player_hit_by_enemy(enemy):
 	active_syringes -= 1
 	_check_game_over()
 
-func _on_AfterGameOverTimer_timeout():
+func _on_GameOverSoundPlayer_finished():
 	get_tree().change_scene("res://scenes/MainMenu.tscn")
 
 func _on_Player_victim_infected(victim):

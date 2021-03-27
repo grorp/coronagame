@@ -5,3 +5,4 @@ var infected = false
 func infect():
 	infected = true
 	$AnimationPlayer.play("infect")
+	$InfectedSound.play()
