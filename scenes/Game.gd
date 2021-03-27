@@ -75,12 +75,15 @@ func _on_SyringeSpawnTimer_timeout():
 	syringe.linear_velocity = syringe.linear_velocity.rotated(syringe.rotation)
 	
 	active_syringes += 1
-	syringe.connect("tree_exited", self, "_on_Syringe_deleted")
+	syringe.connect("tree_exited", self, "_on_Syringe_tree_exited")
 
-func _on_Syringe_deleted():
-	active_syringes -= 1
+func _check_game_over():
 	if $Player.stopped and active_syringes == 0:
 		$AfterGameOverTimer.start()
+
+func _on_Syringe_tree_exited():
+	active_syringes -= 1
+	_check_game_over()
 
 func _on_Player_hit_by_enemy(enemy):
 	if not $Player.stopped:
@@ -90,6 +93,7 @@ func _on_Player_hit_by_enemy(enemy):
 		$HUD/GameOverTxt.show()
 	enemy.linear_velocity = Vector2(0, 0)
 	active_syringes -= 1
+	_check_game_over()
 
 func _on_AfterGameOverTimer_timeout():
 	get_tree().change_scene("res://scenes/MainMenu.tscn")
