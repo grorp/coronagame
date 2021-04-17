@@ -4,4 +4,4 @@
 
 This game was developed by Gregor Parzefall and Marlon Peters for a school project during the corona pandemic. It is using the [Godot](https://godotengine.org) game engine.
 
-You can download the latest compiled version from the [releases tab](https://greygit.de/gregor/coronagame/releases).
+You can download the latest compiled version from the [releases page](https://github.com/grorp/coronagame/releases).
